@@ -1,0 +1,383 @@
+/* Typography */
+
+:root {
+  --color-background: #222;
+  --color-heading: #7574fc;
+  --color-main: #7574fc;
+  --color-board: #7574fc;
+  --color-piece0: #7574fc;
+  --color-piece1: #6bb9a2;
+  --color-piece2: #ff6ca6;
+  --color-piece3: #ff9677;
+  --color-piece4: #f9f871;
+  --color-piece5: #00aeef;
+  --color-piece6: #ba74fc;
+  --color-piece7: #ec64da;
+  --transition-link: color 0.5s;
+  --transition-header: color 0.3s;
+}
+
+/* @font-face {
+  font-family: "Tetris Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Tetris Regular"), url("Tetris.woff") format("woff");
+} */
+
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+header {
+  font-size: 2.2rem;
+  display: flex;
+  height: 7rem;
+  font-weight: 550;
+  color: var(--color-background);
+  background: var(--color-main);
+  align-items: center;
+  padding-left: 5rem;
+  margin-bottom: 5.5rem;
+  /* filter: drop-shadow(1 1rem 1rem rgba(0, 0, 7, 1)); */
+  /* shadow */
+}
+
+header li {
+  cursor: pointer;
+}
+header li:hover {
+  color: #444;
+  transition: var(--transition-header);
+}
+body {
+  background: var(--color-background);
+  color: var(--color-main);
+  font-family: "Tetris Regular", Inter, arial, Arial, Helvetica, sans-serif;
+
+  font-size: 1.7rem;
+  height: 100vh;
+  line-height: 1.5;
+  width: 100vw;
+}
+h1,
+h2,
+h3 {
+  color: var(--color-main);
+  margin: 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+/* Links */
+
+a {
+  text-decoration: none;
+}
+
+/* Icons */
+
+.icon {
+  fill: var(--color-main);
+  font-size: 4rem;
+}
+
+/* Lists */
+
+ul {
+  list-style-type: none;
+}
+
+/* Logo */
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  height: 6rem;
+  width: auto;
+  margin-bottom: 2.5rem;
+}
+
+.logo__image {
+  display: inline-flex;
+}
+
+/* Body Grid */
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+
+/* Grid Gaming Area */
+
+.container {
+  display: grid;
+  cursor: default;
+
+  grid-template-columns: 0.6fr 1.4fr 1.4fr 0.6fr;
+  grid-template-rows: 0.3fr 1.4fr 1.5fr 0.2fr 0.3fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  margin: 0;
+  grid-template-areas:
+    ". attack1 attack2 ."
+    "level player1 player2 btn1"
+    "time player1 player2 btn2"
+    ". attacks-left1 attacks-left2 ."
+    ". score1 score2 .";
+}
+
+.player1 {
+  justify-self: center;
+  grid-area: player1;
+  width: 28rem;
+  height: 45rem;
+  background: var(--color-main);
+  margin-left: 4rem;
+  margin-right: 3rem;
+}
+
+.fa-exclamation {
+  position: absolute;
+  color: var(--color-piece3);
+  top: 17rem;
+  left: 38rem;
+}
+
+.player2 {
+  justify-self: center;
+  grid-area: player2;
+  width: 28rem;
+  height: 45rem;
+  background: var(--color-main);
+  margin-left: 3rem;
+  margin-right: 4rem;
+}
+
+.attack1 {
+  justify-self: center;
+  align-self: end;
+  grid-area: attack1;
+}
+
+.attack2 {
+  justify-self: center;
+  align-self: end;
+  grid-area: attack2;
+}
+
+.level {
+  justify-self: end;
+  align-self: start;
+  grid-area: level;
+}
+.level h2 {
+  margin: 0;
+}
+
+.level__current-level {
+  color: var(--color-piece5);
+}
+
+.time {
+  justify-self: end;
+  align-self: end;
+  grid-area: time;
+}
+
+.time h2 {
+  margin: 0;
+}
+.time__current-time {
+  color: var(--color-piece6);
+}
+.btn1 {
+  justify-self: start;
+  align-self: end;
+  grid-area: btn1;
+  cursor: pointer;
+}
+.btn1__play {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.btn1__play h3 {
+  margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.btn1__play:hover .fa-play {
+  color: var(--color-piece1);
+  transition: var(--transition-link);
+}
+
+.btn1__restart {
+  display: none;
+  justify-content: left;
+  align-items: center;
+}
+
+.btn1__restart h3 {
+  margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.btn1__restart:hover .fa-redo-alt {
+  color: var(--color-piece2);
+  transition: var(--transition-link);
+}
+
+.btn1__pause {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.btn1__pause:hover .fa-pause {
+  color: var(--color-piece4);
+  transition: var(--transition-link);
+}
+.btn1__pause h3 {
+  margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.btn2 {
+  justify-self: start;
+  align-self: start;
+  grid-area: btn2;
+  cursor: pointer;
+}
+
+.btn2__controls {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.btn2__controls:hover .fa-gamepad {
+  color: var(--color-piece6);
+  transition: var(--transition-link);
+}
+.btn2__controls h3 {
+  margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+.points-div {
+  cursor: auto;
+  position: absolute;
+  bottom: 115px;
+}
+
+.points-div .points2-div {
+  margin: 2px 0;
+}
+.points1 {
+  color: var(--color-piece2);
+}
+.points2 {
+  color: var(--color-piece1);
+}
+
+#points1 {
+  color: var(--color-piece0);
+}
+
+#points2 {
+  color: var(--color-piece0);
+}
+
+.attacks-left1 {
+  justify-self: center;
+  align-self: start;
+  grid-area: attacks-left1;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.attacks {
+  font-size: 20px;
+  color: var(--color-piece3);
+}
+
+.attacks-left2 {
+  justify-self: center;
+  align-self: start;
+  grid-area: attacks-left2;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.score1 {
+  justify-self: center;
+  align-self: start;
+  grid-area: score1;
+}
+
+.score1__wins {
+  color: var(--color-piece2);
+}
+
+.score2 {
+  justify-self: center;
+  align-self: start;
+  grid-area: score2;
+}
+.score2__wins {
+  color: var(--color-piece1);
+}
+
+/* Player 1 Tetris Board */
+
+.player1-grid {
+  background: var(--color-background);
+  display: grid;
+  grid-template-columns: 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem;
+  grid-template-rows: 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem;
+  gap: 1px 1px;
+}
+.cell1 {
+  background: var(--color-main);
+  /* border-radius: 3px; */
+}
+
+/* Player 2 Tetris Board */
+
+.player2-grid {
+  display: grid;
+  background: var(--color-background);
+  grid-template-columns: 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem;
+  grid-template-rows: 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem;
+  gap: 1px 1px;
+}
+
+.cells {
+  background: var(--color-main);
+  border-radius: 2px;
+  border: none;
+  padding: 1px 2px;
+  /* box-shadow: 0px -1px 0px rgba(224, 224, 224, 0.3) inset; */
+  /* box-shadow: -1px 1.5px 1.5px 1px rgba(0, 0, 0, 0.05),
+    1px -1.1px 1.5px 1px rgba(255, 255, 255, 0.1); */
+}
+
+/* Icons */
+
+/* TODO: 
+
+place buttons into 1 merged button cell. add a restart button. with arrow in circle icon.
+
+add Icon that "!" shows that you are being attacked. It's default color will be invisible or grey. will turn orange when being attacked. Need for both players
+
+border radius on board pieces?
+
+do I need to say start/pause/controls?
+*/
