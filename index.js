@@ -563,7 +563,7 @@ const updateColor = () => {
                 let idToChange = document.getElementById(id);
                 idToChange.style.backgroundColor = `var(--color-piece${color})`;
             }
-            else if(MATRIX[i][j] === 0 ){
+            else if(MATRIX[i][j] === 0){
                 let id2 = ("_"+ i + j);
                 let idToChange2 = document.getElementById(id2);
                 idToChange2.style.backgroundColor = noColorChange;
