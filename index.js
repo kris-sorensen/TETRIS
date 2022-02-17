@@ -331,7 +331,11 @@ let gameEnded2 = false;
 let paused = false;
 let paused2 = false;
 
-const placeOnMatrix = () => {
+const sleep = (time) => {
+  return new Promise((resolve) => setTimeout(resolve, time));
+};
+
+async function placeOnMatrix() {
   paused = true;
   currentSpin = 0;
 
@@ -346,6 +350,8 @@ const placeOnMatrix = () => {
       gameEnded = true;
     }
   }
+  await sleep(500);
+
   if (!gameEnded) {
     for (let i = 3; i < 7; i++) {
       if (tetrimino[0][i - 3] > 0) {
@@ -362,9 +368,9 @@ const placeOnMatrix = () => {
   }
   endGame();
   paused = false;
-};
+}
 
-const placeOnMatrix2 = () => {
+async function placeOnMatrix2() {
   paused2 = true;
   currentSpin2 = 0;
 
@@ -383,6 +389,8 @@ const placeOnMatrix2 = () => {
       gameEnded2 = true;
     }
   }
+  //delay briefly next tetremino placing on board
+  await sleep(500);
 
   //placing tetrimino on matrice
   if (!gameEnded2) {
@@ -401,7 +409,7 @@ const placeOnMatrix2 = () => {
   }
   endGame2();
   paused2 = false;
-};
+}
 
 const lowerTetrimino = () => {
   if (!stopped) {
