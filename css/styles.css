@@ -38,7 +38,7 @@ header {
   background: var(--color-main);
   align-items: center;
   padding-left: 5rem;
-  margin-bottom: 5.5rem;
+  margin-bottom: 5rem;
   /* filter: drop-shadow(1 1rem 1rem rgba(0, 0, 7, 1)); */
   /* shadow */
 }
@@ -109,7 +109,7 @@ ul {
   justify-content: center;
   height: 6rem;
   width: auto;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .logo__image {
@@ -301,7 +301,13 @@ ul {
   justify-self: center;
   align-self: start;
   grid-area: attacks-left1;
-  margin: 0.5rem 0 1rem 0;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.attacks-left1 img {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 10px;
 }
 
 .attacks {
@@ -313,7 +319,13 @@ ul {
   justify-self: center;
   align-self: start;
   grid-area: attacks-left2;
-  margin: 0.5rem 0 1rem 0;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.attacks-left2 img {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 10px;
 }
 
 .score1 {

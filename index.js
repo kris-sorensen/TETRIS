@@ -244,15 +244,24 @@ let animateInterval;
 
 let timeStart = null;
 let timeLapsed = null;
+let drop1st = false; // allows for drop keydown event to be triggered twice as often as spin and right and left
 
 const animatePage = () => {
   if (!pauseAll) {
     if (timeStart === null) timeStart = performance.now();
     timeLapsed = performance.now();
 
+    if (timeLapsed - timeStart > 59) {
+      if (!drop1st) {
+        executeDrop();
+        drop1st = true;
+      }
+    }
+
     if (timeLapsed - timeStart > 120) {
       executeMoves();
       timeStart = performance.now();
+      drop1st = false;
     }
 
     if (!gameEnded2) updateColor2();
@@ -260,12 +269,6 @@ const animatePage = () => {
     animateInterval = requestAnimationFrame(animatePage);
   }
 };
-
-// do an if statement that can check the time and see if a certain amount of time has passed if so it'll trigger the move function.
-
-//param would be timeStart && timeLapsed.
-// external var timeStart and timeLapsed. timeLapsed would update to current time everytime requestAnimation is hit.
-// it would check to see if timeLapsed === 100ms(if(timeLapsed - timeStart > 100)) if so it would redifine timeStart and clear time lapsed and trigger excuteMoves function.
 
 const levelFunc = () => {
   if (!pauseAll) {
@@ -338,7 +341,7 @@ const placeOnMatrix = () => {
 
   activeTetrimino = [];
 
-  for (let i = 3; i < 7; i++) {
+  for (let i = 3; i < 6; i++) {
     if (MATRIX[0][i] < 0 || MATRIX[1][i] < 0) {
       gameEnded = true;
     }
@@ -364,18 +367,24 @@ const placeOnMatrix = () => {
 const placeOnMatrix2 = () => {
   paused2 = true;
   currentSpin2 = 0;
+
+  // Picking Random Tetrimino
   tetrimino2 = TETRIMINOS[Math.floor(Math.random() * 7)];
+
+  // assigning color to tetrimino
   let activeColorFiltered = tetrimino2[0].filter((color) => color > 0);
   activeColor2 = activeColorFiltered[0];
 
   activeTetrimino2 = [];
-
-  for (let i = 3; i < 7; i++) {
+  // Check to see if game has ended
+  for (let i = 3; i < 6; i++) {
+    // changed from 7 to 6
     if (MATRIX2[0][i] < 0 || MATRIX2[1][i] < 0) {
       gameEnded2 = true;
     }
   }
 
+  //placing tetrimino on matrice
   if (!gameEnded2) {
     for (let i = 3; i < 7; i++) {
       if (tetrimino2[0][i - 3] > 0) {
@@ -678,20 +687,39 @@ const reset2Attack2 = () => {
 };
 
 const renderAttacks = () => {
-  // not working to add attack move to dom
-  const attack2 = (document.getElementById("attacks2").innerText = "");
-  for (let i = 0; i < attacks2.length; i++) {
-    if (attack2.innerText === "") {
-      attack2.innerText = "•";
-    } else {
-      attack2.innerText += "•";
+  // display amount of attack moves visually on screen
+  const displayAttacks = document.getElementById("attacks1");
+  while (displayAttacks.firstChild) {
+    displayAttacks.removeChild(displayAttacks.firstChild);
+  }
+  for (let i = 0; i < attacks.length; i++) {
+    if (attacks[i] === 2) {
+      const image = document.createElement("img");
+      image.src = "./icons/cherryBomb2.png";
+      displayAttacks.appendChild(image);
+    } else if (attacks[i] === 1) {
+      const image2 = document.createElement("img");
+      image2.src = "./icons/weakBomb2.png";
+      displayAttacks.appendChild(image2);
     }
   }
 
-  const attack1 = (document.getElementById("attacks1").innerText = "");
-  attacks.forEach((attack) => {
-    attack1.innerText += "•";
-  });
+  const displayAttacks2 = document.getElementById("attacks2");
+
+  while (displayAttacks2.firstChild) {
+    displayAttacks2.removeChild(displayAttacks2.firstChild);
+  }
+  for (let i = 0; i < attacks2.length; i++) {
+    if (attacks2[i] === 2) {
+      const image = document.createElement("img");
+      image.src = "./icons/cherryBomb2.png";
+      displayAttacks2.appendChild(image);
+    } else if (attacks2[i] === 1) {
+      const image2 = document.createElement("img");
+      image2.src = "./icons/weakBomb2.png";
+      displayAttacks2.appendChild(image2);
+    }
+  }
 };
 
 //////////////////////////////* SCORING ////////////////////////////////
@@ -751,12 +779,14 @@ const points2p = (rowsCleared) => {
       perfectClearBonus;
   document.getElementById("points2").innerHTML = points2;
 
+  // add small attack if 3 rows cleared together
   if (rowsCleared === 3) {
     attacks2.push(1);
     renderAttacks();
 
     // attack2.style.color = "var(--color-piece2)";
   }
+  //add big attack if 4 rows cleared together
   if (rowsCleared === 4) {
     attacks2.push(2);
     renderAttacks();
@@ -1233,6 +1263,11 @@ const executeMoves = () => {
   Object.keys(moves).forEach((key) => {
     moves[key].pressed && moves[key].func();
   });
+};
+
+const executeDrop = () => {
+  if (moves[40].pressed === true) moves[40].func();
+  if (moves[83].pressed === true) moves[83].func();
 };
 
 // const moveInterval = setInterval(executeMoves, 120);
