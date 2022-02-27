@@ -84,7 +84,7 @@
                         <Logo></Logo>
 */                 
 
-import React, { Component } from 'react';
+import React, { cloneElement, Component } from 'react';
 
 
 
@@ -135,7 +135,12 @@ class BlockRain extends Component {
     state = {  } 
     // create matrice and render in grid style. Take the width of the screen and divide it by X to get square sizes. and set in style
     render() { 
-        return ();
+       
+        return (
+            <div className="screen">
+                <Rows></Rows> // * amount of rows
+            </div>
+        );
     }
 
     //Methods:
@@ -145,9 +150,38 @@ class BlockRain extends Component {
     // choose piece
 }
 
+export default BlockRain;
+
+
+class Rows extends Component {
+    state = {  } 
+    render() { 
+        return (
+
+            <div className="row">
+                <Cell></Cell> // * number of collumns
+
+            </div>
+
+        );
+    }
+}
+export default Rows;
+
+class Cell extends Component {
+    state = {  } 
+    render() { 
+        return (
+            <div className="cell"></div>
+        );
+    }
+}
+ 
+export default Cell;
+ 
+
 // self starting function that gets loop started
  
-export default BlockRain;
 
 
 
@@ -163,7 +197,7 @@ class Container extends Component {
     render() { 
         return (
             <>
-                <Logo></Logo>
+                 <img src="" alt="Logo" srcset="" />
                 <div className="singleMultiSlider"></div>
                 <div className="play"></div> // triggers a popup that lets use choose your name or login with 4 digit code so you can use your same tag.
                 <div className="topScores"></div> // goes to an arcade like top scores page. 
@@ -176,22 +210,6 @@ class Container extends Component {
 export default Container;
 
 
-
-
-///////////////
-import React, { Component } from 'react';
-
-
-class Logo extends Component {
-    state = {  } 
-    render() { 
-        return (
-            <img src="" alt="Logo" srcset="" />
-        );
-    }
-}
- 
-export default Logo;
 
 
 
@@ -219,5 +237,13 @@ export default Logo;
 // Giant object that stores user names and passcodes. and past results w/ detail of who they played. how the other person did, date/&Time, time alive, level, score, ability to sort score based on thes factors?
     // Mehods. search find retrieve data, delete user, if exists or wrong passcode statements. is new user message. and display create user.
 // disregard games that were ended under 1 min. 1
+
+
+
+
+
+/*  
+SUDO CODE
+*/
 
 
