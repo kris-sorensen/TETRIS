@@ -109,7 +109,8 @@ ul {
   justify-content: center;
   height: 6rem;
   width: auto;
-  margin-bottom: 0.5rem;
+  margin-top: 10rem;
+  margin-bottom: 1.5rem;
 }
 
 .logo__image {
@@ -275,8 +276,7 @@ ul {
 }
 .points-div {
   cursor: auto;
-  position: absolute;
-  bottom: 115px;
+  margin-top: 10rem;
 }
 
 .points-div .points2-div {
