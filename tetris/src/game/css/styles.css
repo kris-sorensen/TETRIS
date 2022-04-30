@@ -1,7 +1,25 @@
 /* Typography */
 
 :root {
-  --color-background: #222;
+
+
+
+  /* --color-background: #334599;
+  --color-heading: #ecc547;
+  --color-main: #ecc547;
+  --color-board: #ecc547;
+  --color-piece0: #334599;
+  --color-piece1: #3adf75;
+  --color-piece2: #ea92d1;
+  --color-piece3: #FFBB80;
+  --color-piece4: #28C4A6;
+  --color-piece5: #3cd4dd;
+  --color-piece6: #A990E7;
+  --color-piece7: #E2548B; */
+
+  --color-background: #222; 
+
+
   --color-heading: #7574fc;
   --color-main: #7574fc;
   --color-board: #7574fc;
@@ -9,12 +27,13 @@
   --color-piece1: #6bb9a2;
   --color-piece2: #ff6ca6;
   --color-piece3: #ff9677;
-  --color-piece4: #f9f871;
+  --color-piece4: #f9f871; 
   --color-piece5: #00aeef;
   --color-piece6: #ba74fc;
   --color-piece7: #ec64da;
   --transition-link: color 0.5s;
   --transition-header: color 0.3s;
+
 }
 
 /* @font-face {
