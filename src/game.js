@@ -26,6 +26,10 @@ PLAN:
 */
 
 //////////////////////////////* SETUP *////////////////////////////////
+import './css/styles.css'
+import './css/normalize.css'
+
+
 
 //* BOARD
 
@@ -756,9 +760,9 @@ const points = (rowsCleared) => {
   points1 =
     points1 +
     pointsFor1Line *
-      lineMultiplier[rowsCleared] *
-      levelMultiplier[levelX] *
-      perfectClearBonus;
+    lineMultiplier[rowsCleared] *
+    levelMultiplier[levelX] *
+    perfectClearBonus;
   document.getElementById("points1").innerHTML = points1;
 
   if (rowsCleared === 3) {
@@ -782,9 +786,9 @@ const points2p = (rowsCleared) => {
   points2 =
     points2 +
     pointsFor1Line *
-      lineMultiplier[rowsCleared] *
-      levelMultiplier[levelX] *
-      perfectClearBonus;
+    lineMultiplier[rowsCleared] *
+    levelMultiplier[levelX] *
+    perfectClearBonus;
   document.getElementById("points2").innerHTML = points2;
 
   // add small attack if 3 rows cleared together

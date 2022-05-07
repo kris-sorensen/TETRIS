@@ -17,7 +17,7 @@
   --color-piece6: #A990E7;
   --color-piece7: #E2548B; */
 
-  --color-background: #222; 
+  --color-background: #222;
 
 
   --color-heading: #7574fc;
@@ -27,7 +27,7 @@
   --color-piece1: #6bb9a2;
   --color-piece2: #ff6ca6;
   --color-piece3: #ff9677;
-  --color-piece4: #f9f871; 
+  --color-piece4: #f9f871;
   --color-piece5: #00aeef;
   --color-piece6: #ba74fc;
   --color-piece7: #ec64da;
@@ -65,10 +65,12 @@ header {
 header li {
   cursor: pointer;
 }
+
 header li:hover {
   color: #444;
   transition: var(--transition-header);
 }
+
 body {
   background: var(--color-background);
   color: var(--color-main);
@@ -79,6 +81,7 @@ body {
   line-height: 1.5;
   width: 100vw;
 }
+
 h1,
 h2,
 h3 {
@@ -205,6 +208,7 @@ ul {
   align-self: start;
   grid-area: level;
 }
+
 .level h2 {
   margin: 0;
 }
@@ -222,15 +226,18 @@ ul {
 .time h2 {
   margin: 0;
 }
+
 .time__current-time {
   color: var(--color-piece6);
 }
+
 .btn1 {
   justify-self: start;
   align-self: end;
   grid-area: btn1;
   cursor: pointer;
 }
+
 .btn1__play {
   display: flex;
   justify-content: left;
@@ -266,10 +273,12 @@ ul {
   align-items: center;
   justify-content: left;
 }
+
 .btn1__pause:hover .fa-pause {
   color: var(--color-piece4);
   transition: var(--transition-link);
 }
+
 .btn1__pause h3 {
   margin: 1.5rem 1.5rem 1.5rem 1.5rem;
 }
@@ -286,13 +295,16 @@ ul {
   align-items: center;
   justify-content: left;
 }
+
 .btn2__controls:hover .fa-gamepad {
   color: var(--color-piece6);
   transition: var(--transition-link);
 }
+
 .btn2__controls h3 {
   margin: 1.5rem 1.5rem 1.5rem 1.5rem;
 }
+
 .points-div {
   cursor: auto;
   margin-top: 10rem;
@@ -301,9 +313,11 @@ ul {
 .points-div .points2-div {
   margin: 2px 0;
 }
+
 .points1 {
   color: var(--color-piece2);
 }
+
 .points2 {
   color: var(--color-piece1);
 }
@@ -362,6 +376,7 @@ ul {
   align-self: start;
   grid-area: score2;
 }
+
 .score2__wins {
   color: var(--color-piece1);
 }
@@ -375,6 +390,7 @@ ul {
   grid-template-rows: 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem 2.72rem;
   gap: 1px 1px;
 }
+
 .cell1 {
   background: var(--color-main);
   /* border-radius: 3px; */
